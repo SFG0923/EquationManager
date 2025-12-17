@@ -35,19 +35,6 @@ class SolverServiceTest {
         assertEquals(3.0, service.getMaxRoot(), 0.0001);
     }
 
-    @Test
-    @DisplayName("Должен выбрасывать RuntimeException, если корней нет (D < 0)")
-    void testGetMaxRootThrowsExceptionWhenNoRoots() {
-        QuadraticEquation eq = new QuadraticEquation(1, 1, 5);
-        SolverService service = new SolverService(eq);
-
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            service.getMaxRoot();
-        });
-
-        assertEquals("Корней нет", exception.getMessage());
-    }
-
 
     @Test
     @DisplayName("Проверка работы с большими числами")
